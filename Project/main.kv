@@ -66,3 +66,12 @@ MDScreen:
             font_size: "16sp"
             pos_hint: {"center_x":.65, "center_y":.3}
             color: rgba(135,133,193,255)
+
+        MDRectangleFlatButton:
+            text: "Let's Go"
+            color: rgba(0,0,59,255)
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.2}
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "main_page"
