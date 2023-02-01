@@ -1,0 +1,21 @@
+MDScreen:
+    name: "main_page"
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            title: 'LOGO'
+
+            left_action_items: [["menu", lambda x: app.profile_page()]]
+            right_action_items: [["dots-vertical", lambda x: app.settings_page()]]
+            elevation:4
+
+        MDLabel:
+            text: 'hello world'
+            halign: 'center'
+            
+        MDBottomAppBar:
+            MDTopAppBar:
+                icon: 'home-outline'
+                type: 'bottom'
+                left_action_items: [["progress-check", lambda x: setting_page()]]
+                right_action_items: [["clock", lambda x: app.settings_page()]]

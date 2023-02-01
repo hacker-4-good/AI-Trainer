@@ -6,8 +6,7 @@ from kivy.core.window import Window
 from kivy.properties import StringProperty
 from kivymd.uix.relativelayout import MDRelativeLayout
 
-Window.size = (310,580)
-
+Window.size = (300,600)
 
 
 class ClickableTextFieldRound(MDRelativeLayout):
@@ -24,9 +23,10 @@ class AITrainer(MDApp):
         screen_manager.add_widget(Builder.load_file("signup.kv"))
         screen_manager.add_widget(Builder.load_file("login.kv"))
         screen_manager.add_widget(Builder.load_file("main.kv"))
+        screen_manager.add_widget(Builder.load_file("main_page.kv"))
         return screen_manager
     
 if __name__ =="__main__":
-    LabelBase.register(name="MPoppins", fn_regular="Project/Roboto-Medium.ttf")
-    LabelBase.register(name="BPoppins", fn_regular="Project/Roboto-Bold.ttf")
+    LabelBase.register(name="MPoppins", fn_regular="Roboto-Medium.ttf")
+    LabelBase.register(name="BPoppins", fn_regular="Roboto-Bold.ttf")
     AITrainer().run()
