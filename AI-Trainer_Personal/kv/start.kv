@@ -1,0 +1,71 @@
+
+
+<Start>:
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "8dp"
+        spacing: "8dp"
+        md_bg_color: .5,.5,.5,.1
+
+        FitImage:
+            source: "assets/images/Gym.jpg"
+            radius: "25dp"
+
+        MDFloatLayout:
+
+            MDLabel:
+                text:
+                    "Welcome to " \
+                    "AI-Trainer"
+                font_style: "H6"
+                font_name: "BPoppins"
+                halign: "center"
+                text_color: "black"
+                size_hint: (.4,.4)
+                pos_hint: {"center_x": .5,"center_y": .8}
+
+            MDLabel:
+                text: "This is your personalized trainer."
+                halign: "center"
+                font_style: "Caption"
+                font_name: "MPoppins"
+                text_color: "grey"
+                pos_hint: {"center_x": .5,"center_y": .65}
+                adaptive_size: True
+
+            MDLabel:
+                text: "Your one stop solution to All your gym needs."
+                halign: "center"
+                font_style: "Caption"
+                font_name: "MPoppins"
+                text_color: "grey"
+                pos_hint: {"center_x": .5,"center_y": .6}
+                adaptive_size: True
+
+
+            MagicButton:
+                text: "Log in"
+                text_color: "black"
+                line_color: "black"
+                font_name: "Courier"
+                md_bg_color: 1,1,1,1
+                size_hint_x: .6
+                pos_hint: {"center_x": .5,"center_y": .4}
+                on_release:
+                    self.wobble()
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "login"
+
+            MagicButton:
+                text: "Sign in"
+                text_color: "black"
+                line_color: "black"
+                font_name: "Courier"
+                md_bg_color: app.theme_cls.primary_color
+                size_hint_x: .6
+                bold: True
+                pos_hint: {"center_x": .5,"center_y": .2}
+                on_release:
+                    self.wobble()
+                    root.manager.transition.direction = "left"
+                    root.manager.current = "signup"

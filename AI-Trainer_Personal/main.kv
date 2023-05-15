@@ -1,0 +1,203 @@
+
+<HeroItem>
+    size_hint_y: None
+    height: "200dp"
+    radius: 24
+
+    MDSmartTile:
+        id: tile
+        radius: 24
+        box_radius: 0, 0, 24, 24
+        box_color: (142/255, 77/255, 182/255, 1)
+        source: root.source
+        size_hint: None, None
+        size: root.size
+        mipmap: True
+        on_release: root.on_release()
+
+        MDLabel:
+            text: root.tag
+            theme_text_color: "Primary"
+            font_style: "H6"
+            halign: "center"
+            color: "white"
+            bold: True
+
+<AccountItem@OneLineListItem>
+    height: "84dp"
+    _txt_bot_pad: "32dp"
+
+
+
+MDScreenManager:
+    Started:
+        name: "get_started"
+    Start:
+        name: "start"
+    Login:
+        name: "login"
+    SignUp:
+        name: "signup"
+    Motive:
+        name: "motive"
+
+    MDScreen:
+        name: "screen_1"
+
+        MDBoxLayout:
+            id: box_layout_top
+            orientation: "vertical"
+            #md_bg_color: rgba(127,255,212,255)
+
+            AnchorLayout:
+                anchor_x: "right"
+                size_hint: (1,.1)
+
+                MDLabel:
+                    text: "AI-Trainer"
+                    font_style: "H6"
+                    halign: "center"
+                    md_bg_color: rgba(127,255,212,255)
+
+            MDBottomNavigation:
+                panel_color: rgba(127,255,212,255)
+
+                MDBottomNavigationItem:
+                    name: "page1"
+                    icon: "home"
+                    icon_color: "blue"
+
+                    MDScreenManager:
+                        id: screen_manager
+
+                        MDScreen:
+                            name:"cards_screen"
+
+                            ScrollView:
+
+                                MDGridLayout:
+                                    id: box
+                                    cols: 1
+                                    spacing: "12dp"
+                                    padding: "12dp"
+                                    adaptive_height: True
+
+                        MDScreen:
+                            name: "desc_screen_1"
+                            heroes_to: [hero_to]
+
+                            MDBoxLayout:
+                                orientation: "vertical"
+
+                                MDHeroTo:
+                                    id: hero_to
+                                    size_hint: 1, None
+                                    height: "220dp"
+                                    pos_hint: {"top": 1}
+
+                                ScrollView:
+
+                                    MDList:
+                                        md_bg_color: 0,0,0,.2
+                                        padding: "24dp"
+                                        spacing: "24dp"
+
+                                        MDLabel:
+                                            text: "Description"
+                                            font_style: "H5"
+                                            bold: True
+                                            adaptive_height: True
+                                            padding_y: "24dp"
+
+                                        MDLabel:
+
+                                            text:
+                                                "A jumping jack, also known as a star jump and called a side-straddle hop in the US military " \
+                                                "is a physical jumping exercise performed by jumping to a position with the legs spread wide and the hands going overhead, " \
+                                                "sometimes in a clap, and then returning to a position with the feet together and the arms at the sides. " \
+                                                "The name origin for the jumping jack exercise has sometimes erroneously been identified as World War I U.S. "
+                                            adaptive_height: True
+
+                                        MDFillRoundFlatButton:
+                                            text: "Let's Go"
+                                            adaptive_size: True
+                                            text_color: "black"
+                                            md_bg_color: rgba(127,255,212,255)
+
+                            MDIconButton:
+                                icon: "close"
+                                md_bg_color: 0, 0, 0, .5
+                                x: 12
+                                pos_hint: {"top": .99}
+                                on_release:
+                                    root.ids.screen_manager.current = "cards_screen"
+
+
+                MDBottomNavigationItem:
+                    name: "page2"
+                    icon: "compass-outline"
+
+                MDBottomNavigationItem:
+                    name: "page3"
+                    icon: "finance"
+
+                MDBottomNavigationItem:
+                    name: "page4"
+                    icon: "cog"
+
+                    MDScreen
+                        name: "settings_screen"
+                        MDBoxLayout:
+                            orientation: "vertical"
+
+                            FitImage:
+                                opacity: .5
+                                size_hint_y: .4
+                                source:
+                                    "assets/user/back-ground.jpg"
+
+                            ScrollView:
+                                size_hint_y: .6
+
+                                MDList:
+
+                                    AccountItem:
+                                        text: "Edit Profile"
+                                        icon: "account"
+                                        on_press:
+                                            app.show_alert_dialog()
+                                    AccountItem:
+                                        text: "Help"
+                                        icon: "phone"
+                                    AccountItem:
+                                        text: "About App"
+                                        icon: "tablet"
+                                    AccountItem:
+                                        text: "Logout"
+                                        icon: "account-circle"
+                                        on_press:
+                                            root.current = "login"
+
+                        MDBoxLayout:
+                            adaptive_height: True
+                            spacing: "12dp"
+                            x: "24dp"
+                            pos_hint: {"top": .96}
+
+                            MDBoxLayout:
+                                size_hint: None, None
+                                size: "120dp", "120dp"
+                                radius: self.width / 2
+
+                                FitImage:
+                                    radius: self.width / 2
+                                    source:
+                                        "assets/user/avatar.jpg"
+
+                            TwoLineListItem:
+                                #text: "[size=24][b]User_Name[/b][/size]"
+                                text: app.user
+                                secondary_text: app.email
+                                pos_hint: {"center_y": .5}
+                                divider: None
+                                _no_ripple_effect: True

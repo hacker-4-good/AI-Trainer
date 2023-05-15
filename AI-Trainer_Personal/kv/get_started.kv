@@ -1,0 +1,21 @@
+
+<Started@MDScreen>:
+    md_bg_color: .5,.5,.5,.1
+
+    Image: 
+        source: "assets/logo/AI-Trainer-Logo.png"
+        pos_hint: {"center_x":.5, "center_y":.65}
+
+    MagicButton:
+        id: check
+        text: "Get Started"
+        text_color: "black"
+        pos_hint: {"center_x":.5, "center_y":.25}
+        size_hint: .66, .065
+        line_color: 0,0,0,1
+        md_bg_color: app.theme_cls.primary_color
+        font_name: "Courier"
+        on_release:
+            self.wobble()
+            root.manager.transition.direction = "left"
+            root.manager.current = "start"

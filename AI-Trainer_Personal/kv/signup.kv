@@ -1,0 +1,121 @@
+
+
+<SignUp>:
+
+    MDFloatLayout:
+        md_bg_color:  .5,.5,.5,.1
+
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y":.95}
+            theme_text_color: "Custom"
+            text_color: rgba(26,24,58,255)
+            on_release:
+                root.manager.transition.direction: "right"
+                root.manager.current = "start"
+
+        MDLabel:
+            text: "H i !"
+            font_name: "BPoppins"
+            font_size: "26sp"
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.85}
+            color: rgba(0,0,59,255)
+
+        MDLabel:
+            text: "Create a new account"
+            font_name: "BPoppins"
+            font_size: "18sp"
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.79}
+            color: rgba(135,133,193,255)
+
+        MDTextField:
+            id: signup_username
+            hint_text: "Username"
+            helper_text: "Enter Username"
+            helper_text_mode: "on_error"
+            pos_hint: {"center_x":.47, "center_y":.68}
+            size_hint_x: .7
+
+        MDTextField:
+            id: signup_email
+            hint_text: "Email"
+            helper_text: "Invalid Email"
+            helper_text_mode: "on_error"
+            pos_hint: {"center_x":.47, "center_y":.56}
+            size_hint_x: .7
+
+        MDTextField:
+            id: signup_password
+            hint_text: "Password"
+            helper_text: "Password required"
+            helper_text_mode: "on_error"
+            pos_hint: {"center_x":.47, "center_y":.44}
+            size_hint_x: .7
+
+        MagicButton:
+            id: button
+            text: "Register"
+            text_color: "black"
+            line_color: "black"
+            font_name: "Courier"
+            md_bg_color: 1,1,1,1
+            size_hint_x: .6
+            pos_hint: {"center_x":.5,"center_y":.32}
+            on_release:
+                self.wobble()
+                root.manager.transition.direction = "left"
+                root.userAuth(signup_username.text,signup_email.text,signup_password.text)
+
+        MDLabel:
+            text: "or"
+            color: rgba(52,0,231,255)
+            pos_hint: {"center_y": .21}
+            font_name: "13sp"
+            font_name: "BPoppins"
+            halign: "center"
+
+        MDFloatLayout:
+            md_bg_color: rgba(178,178,178,255)
+            size_hint: .3, .002
+            pos_hint: {"center_x":.3, "center_y":.21}
+
+        MDFloatLayout:
+            md_bg_color: rgba(178,178,178,255)
+            size_hint: .3, .002
+            pos_hint: {"center_x":.7, "center_y":.21}
+
+        MDLabel:
+            text: "Social Media Login"
+            font_name: "BPoppins"
+            font_size: "13sp"
+            halign: "center"
+            pos_hint: {"center_y":.16}
+            color: rgba(135,135,193,255)
+
+        MDGridLayout:
+            cols: 3
+            size_hint: .6,.07
+            pos_hint: {"center_x":.5, "center_y":.1}
+            Image:
+                source: "assets/logo/logo1.png"
+            Image:
+                source: "assets/logo/logo2.png"
+
+        MDLabel:
+            text: "Already have an account?"
+            font_name: "BPoppins"
+            font_size: "11sp"
+            pos_hint: {"center_x":.7, "center_y":.04}
+            color: rgba(135,133,193,255)
+
+        MDTextButton:
+            text: "Sign in"
+            font_name: "BPoppins"
+            font_size: "11sp"
+            pos_hint: {"center_x":.65, "center_y":.04}
+            color: rgba(52,0,231,255)
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "login"

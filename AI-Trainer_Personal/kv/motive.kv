@@ -1,0 +1,78 @@
+
+
+<Motive>:
+
+    MDBoxLayout:
+        orientation: "vertical"
+        md_bg_color:  .5,.5,.5,.1
+
+        MDFloatLayout:
+            size_hint: (1,.4)
+
+            MDLabel:
+                text: "What's your Goal?"
+                text_color: "black"
+                font_name: "MPoppins"
+                halign: "center"
+                font_size: "24sp"
+                pos_hint: {"center_x": .5,"center_y": .6}
+
+            MDLabel:
+                text: "Hold the button to select a choice"
+                color: .3,0,0,.7
+                font_name: "MPoppins"
+                halign: "center"
+                font_size: "14sp"
+                pos_hint: {"center_x": .5,"center_y": .4}
+
+        MDGridLayout:
+            cols: 2
+            spacing: "25dp"
+            padding: ["50dp","10dp","50dp","10dp"]
+            adaptive_size: True
+            pos_hint: {"center_x": .5,"center_y": .5}
+
+            MyChip:
+                text: "LoseWeight"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+            MyChip:
+                text: "GainWeight"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+            MyChip:
+                text: "StayHealthy"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+            MyChip:
+                text: "Endurance"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+            MyChip:
+                text: "Shaping"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+            MyChip:
+                text: "BuildMuscle"
+                md_bg_color: 1,1,1,1
+                line_color: "black"
+
+        MDFloatLayout:
+            size_hint: (1,.4)
+
+            MagicButton:
+                text: "Done"
+                text_color: "black"
+                line_color: "black"
+                font_name: "Courier"
+                size_hint_x: .6
+                pos_hint: {"center_x": .5, "center_y": .6}
+                md_bg_color: app.theme_cls.primary_color
+                on_release:
+                    self.wobble()
+                    root.manager.current = "screen_1"

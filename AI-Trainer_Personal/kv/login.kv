@@ -1,0 +1,127 @@
+
+
+<Login>:
+
+    MDFloatLayout:
+        padding: "8dp"
+        spacing: "8dp"
+        md_bg_color: .5,.5,.5,.1
+
+        MDIconButton:
+            icon: "arrow-left"
+            pos_hint: {"center_y":.95}
+            theme_text_color: "Custom"
+            text_color: rgba(26,24,58,255)
+            on_release:
+                root.manager.transition.direction: "right"
+                root.manager.current = "start"
+
+        MDLabel:
+            text: "W e l c o m e !"
+            font_name: "BPoppins"
+            font_size: "26sp"
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.85}
+            color: rgba(0,0,59,255)
+
+        MDLabel:
+            text: "Log in to continue"
+            font_name: "BPoppins"
+            font_size: "18sp"
+            halign: "center"
+            pos_hint: {"center_x":.5, "center_y":.79}
+            color: rgba(135,133,193,255)
+
+        MDTextField:
+            id: login_username
+            hint_text: "Username/Email"
+            helper_text: "Username required"
+            helper_text_mode: "on_error"
+            pos_hint: {"center_x":.5, "center_y":.65}
+            size_hint_x: .7
+
+        MDTextField:
+            id: login_password
+            hint_text: "Password"
+            helper_text: "or click on forgot password"
+            helper_text_mode: "on_focus"
+            pos_hint: {"center_x":.5, "center_y":.52}
+            size_hint_x: .7
+            password: True
+
+
+        MagicButton:
+            text: "Log in"
+            text_color: "black"
+            line_color: "black"
+            font_name: "Courier"
+            md_bg_color: app.theme_cls.primary_color
+            size_hint_x: .6
+            pos_hint: {"center_x":.5,"center_y":.37}
+            on_release:
+                self.wobble()
+                root.manager.transition.direction = "left"
+                root.userAuthLogin(login_username.text, login_password.text)
+
+        MDTextButton:
+            text: "Forgot Password?"
+            font_name: "BPoppins"
+            font_size: "12sp"
+            pos_hint: {"center_x":.5, "center_y":.3}
+            color: rgba(68,78,132,255)
+
+        MDLabel:
+            text: "or"
+            color: rgba(52,0,231,255)
+            pos_hint: {"center_y": .23}
+            font_name: "13sp"
+            font_name: "BPoppins"
+            halign: "center"
+
+        MDFloatLayout:
+            md_bg_color: rgba(178,178,178,255)
+            size_hint: .3, .002
+            pos_hint: {"center_x":.3, "center_y":.228}
+
+        MDFloatLayout:
+            md_bg_color: rgba(178,178,178,255)
+            size_hint: .3, .002
+            pos_hint: {"center_x":.7, "center_y":.228}
+
+        MDLabel:
+            text: "Social Media Login"
+            font_name: "BPoppins"
+            font_size: "13sp"
+            halign: "center"
+            pos_hint: {"center_y":.185}
+            color: rgba(135,133,193,255)
+
+        MDGridLayout:
+            cols: 2
+            size_hint: .6,.07
+            pos_hint: {"center_x":.5, "center_y":.116}
+
+            Image:
+                source: "assets/logo/logo1.png"
+            Image:
+                source: "assets/logo/logo2.png"
+
+        MDLabel:
+            text: "Don't have an account?"
+            font_name: "BPoppins"
+            font_size: "11sp"
+            pos_hint: {"center_x":.7, "center_y":.045}
+            color: rgba(135,133,193,255)
+
+        MDTextButton:
+            text: "Sign up"
+            font_name: "BPoppins"
+            font_size: "11sp"
+            pos_hint: {"center_x":.62, "center_y":.045}
+            color: rgba(52,0,231,255)
+            on_release:
+                root.manager.transition.direction = "left"
+                root.manager.current = "signup"
+
+
+
