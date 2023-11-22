@@ -5,11 +5,9 @@
   • Created a ML enable fitness training application for the gym people.
   • Used Kivy MD (Python app framework) to create a application.
   • The application is connected to ML at the backend taking the input from the camera (can be phone camera or
-  user can connect
-  surveillance camera of the gym).
+  user can connect surveillance camera of the gym).
   • Based upon user video input, ML model get the pose landmark and based upon particular exercise selected,
-  count the total number
-  of reps perform by user.
+  count the total number of reps perform by user.
   • Later on, user will be able to view total reps along visualization in the form graph.
 </pre>
 <hr />
