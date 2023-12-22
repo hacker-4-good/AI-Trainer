@@ -11,3 +11,10 @@
   • Later on, user will be able to view total reps along visualization in the form graph.
 </pre>
 <hr />
+<h3>How to run the Application</h3>
+<ol>
+  <li>Clone the Repo and do <code>cd folder_name</code></li>
+  <li>Write the command in terminal <code>pip install pipenv</code></li>
+  <li>Now, write <code>pipenv shell</code> and choose the newly created environment for execution</li>
+  <li>Later, write <code>pipenv install -r requirements.txt</code> command in terminal</li>
+</ol>
